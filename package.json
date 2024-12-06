@@ -1,0 +1,27 @@
+{
+  "name": "12-eval-s2",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon",
+    "sass": "sass --watch public/index.scss public/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.8.4",
+    "yup": "^1.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sass": "^1.82.0"
+  }
+}

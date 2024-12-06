@@ -1,0 +1,21 @@
+<%- include("header.ejs")  %>
+<main>
+    <h1>Nombre de balade par arrondissement</h1>
+    <table border="1" cellspacing="0" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Arrondissement</th>
+                <th>Nombre de balades</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% synthese.forEach(function(synth){ %>
+            <tr>
+                <td><a href="/arrondissement/<%= synth._id %>"><%= synth._id %></a></td>
+                <td><%= synth.count %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</main>
+<%- include("footer.ejs")  %>

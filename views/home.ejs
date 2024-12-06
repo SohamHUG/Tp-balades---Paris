@@ -1,0 +1,70 @@
+<%- include("header.ejs") %>
+    <main>
+        <% if (balades.length> 0) { %>
+            <h1>
+                <%= title %>
+            </h1>
+            <table border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Arrondissement</th>
+                        <th>Intro</th>
+                        <th>Date de publication</th>
+                        <% if (isAuthenticated) { %>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                            <% } %>
+                                <th>Voir plus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% balades.forEach(function(balade){ %>
+                        <tr>
+                            <td>
+                                <%= balade._id %>
+                            </td>
+                            <td>
+                                <%= balade.nom %>
+                            </td>
+                            <td>
+                                <a href="/arrondissement/<%= balade.arrondissement %>"><%= balade.arrondissement %></a>
+                                
+                            </td>
+                            <td>
+                                <%= balade.texte_intro %>
+                            </td>
+                            <td>
+                                <%= balade.date_publication %>
+                            </td>
+                            <% if (isAuthenticated) { %>
+                                <td>
+                                    <a href="/update-one/<%= balade._id %>" class="mr-10"><img
+                                            src="https://img.icons8.com/?size=50&id=tysLtUg10SXv&format=png&color=000000"
+                                            alt=""></a>
+                                </td>
+                                <td>
+                                    <a href="/delete/<%= balade._id %>"><img
+                                            src="https://img.icons8.com/?size=50&id=VlO1zjsC88sT&format=png&color=000000"
+                                            alt=""></a>
+                                </td>
+                                <% } %>
+                                    <td>
+                                        <a href="/id/<%= balade._id %>"><img
+                                                src="https://img.icons8.com/?size=50&id=7789&format=png&color=000000"
+                                                alt=""></a>
+                                    </td>
+
+
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <h1>
+                    <%= title %>
+                </h1>
+                <% } %>
+    </main>
+    <%- include("footer.ejs") %>

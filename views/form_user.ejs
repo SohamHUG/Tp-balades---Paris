@@ -1,0 +1,26 @@
+<%- include("header.ejs")  %>
+<main>
+    <% if(action === 'add'){ %>
+        <h1>S'inscrire</h1>
+    <% }else{ %>
+        <h1>Se connecter</h1>
+    <% } %>
+
+    <% if(erreur) { %>
+        <p class="error"><%= erreur %></p>
+    <% } %>
+    <form class="form-base" action="<%= action === 'add' ? `/register` : '/login' %>" method="POST">
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" placeholder="Email" value="<%= user.email ? user.email : '' %>" />
+        </div>
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" placeholder="Mot de passe"/>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+</main>
+<%- include("footer.ejs")  %>
